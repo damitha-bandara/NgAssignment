@@ -10,56 +10,37 @@ class assignment1 {
         //get input to string
         String s = objScanner.nextLine();
 
-        //check input legnt between 1 to 10000 and length cannot odd
-        if((s.length())>=1 && s.length()<=10000 && (s.length() % 2)==0) 
-        {
+        //check input legnt between 1 to 10000
+        if(s.length()>=1 && s.length()<=10000) {
+            
             //array index for s legnth
-            for (int i = 0; i < s.length(); i++) 
-            {
+            for (int i = 0; i < s.length(); i++) {
+                
                 //input string to char array
                 char[] c = s.toCharArray();
-                //char openCh= c[i];
-                //char closeCh= c[i+1];
                 
                 //check input characters = (,),[,],{,}
-                if ( (c[i]=='(')  || (c[i]==')') || (c[i]=='[') || (c[i]==']') || (c[i]=='{') || (c[i]=='}') ) 
-                {
+                if ( (c[i]=='(')  || (c[i]==')') || (c[i]=='[') || (c[i]==']') || (c[i]=='{') || (c[i]=='}') ) {
+            
                     //check open brackerts same to close brackerts
-                    if ( ( ( c[i]=='(' ) && ( c[i+1]==')' ) ) || ( ( c[i]=='[' ) && ( c[i+1]==']' ) ) || ( ( c[i]=='{' ) && ( c[i+1]=='}') ) ) 
-                    {
+                    if ( ( ( c[i]=='(' ) && ( c[i+1]==')' ) ) || ( ( c[i]=='[' ) && ( c[i+1]==']' ) ) || ( ( c[i]=='{' ) && ( c[i+1]=='}') ) ) {
                         System.out.println(true);
                         break;
-
                     }
-                    /*else if  ( ( c[i]=='(' ) && ( c[i+1]==')' ) && ( c[i+2]=='[' ) && ( c[i+3]==']' ) && ( c[i+4]=='{' ) && ( c[i+5]=='}' ) ) 
-                    {
-                        System.out.println("order");
-                        System.out.println(true);
+                    else {
+                        System.out.println(false);
                         break;
-                    }*/
-                    else 
-                    {
-                            System.out.println(false);
-                            break;
                     }
                 }
-                else
-                {
+                else {
                     System.out.println(false);
                     break;
                 }
             }
         }
-        else
-        {
+        else{
             System.out.println(false);
-            //break;
         }
-        //}
-        //}
-        /*else{
-            System.out.println(false);
-        }*/
         objScanner.close();
         System.out.println("");
     }
