@@ -1,9 +1,22 @@
 class assignment2{
     public static void main(String[] args) {
+        
         int[]arry={47,84,75,21,14,14,79};
 
+        System.out.print("\nArray Before sort: ");
+        for (int i = 0; i < arry.length; i++) {
+            System.out.print(arry[i]+" "); 
+        }
+        System.out.print("\nArray After  sort: ");
+        sortArray(arry);
+        for (int i = 0; i < arry.length; i++) {
+            System.out.print(arry[i]+" "); 
+        }
+
+        System.out.println("");
+        
         //q1.1 check median number
-        System.out.println("Median Number: "+median(arry));
+        System.out.println("\nMedian Number: "+median(arry));
 
         //q1.2 check highest value
         System.out.print("Highest Value: ");
@@ -15,24 +28,33 @@ class assignment2{
         //q2 check prime numbers
         System.out.print("Prime Numbers: ");
         isPrime(arry);
+
+        System.out.println("\n ");
     }
 
-    public static int median(int[]arry) {
-        /*System.out.println("arry.length: "+arry.length);
-        int medianNumber = ((arry.length)/2);
-        System.out.println("Median Number: "+arry[medianNumber]);
-        */
-        //double m;
+    static void sortArray(int[]arry){
+        int newa = 0;
+        for (int i = 0; i < arry.length; i++) {
+            for (int j = 1; j < (arry.length-i); j++) {
+                if (arry[j-1]>arry[j]) {
+                    //change j & j+1
+                    newa = arry[j-1];
+                    arry[j-1] = arry[j];
+                    arry[j] = newa;
+                }
+            }
+        }
+    }
+
+    static int median(int[]arry) {
         if (arry.length%2==1) {
             return(arry[(arry.length+1)/2-1]);
         } else {
             return((arry[arry.length/2-1]+arry[arry.length/2])/2);
         }
-        //System.out.println(m);
-        //return medianNumber;
     }
 
-    public static void highestValue(int[]arry) {
+    static void highestValue(int[]arry) {
         int max = arry[0];  
         //Loop through the array  
         for (int i = 0; i < arry.length; i++) {  
@@ -43,7 +65,7 @@ class assignment2{
         System.out.println(max);  
     }  
 
-    public static int mode(int[]arry) {
+    static int mode(int[]arry) {
         int maxCount =0, maxValue = 0;
         for (int i = 0; i < arry.length; i++) {
             int count = 0;
@@ -59,7 +81,8 @@ class assignment2{
         }
         return maxValue;
     }
-    public static void isPrime(int[]arry){
+    
+    static void isPrime(int[]arry){
         //loop through the numbers one by one
         for(int i=0; i<arry.length; i++){
             boolean checkPrime = true;
