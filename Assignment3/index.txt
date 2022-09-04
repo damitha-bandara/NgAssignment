@@ -1,0 +1,17 @@
+8
+Nuwan,Damitha
+English 20,20,22
+Bandara,Amithab
+Science 5,20,20,20
+Saman,Wasala
+Math 10,20,30,10,40,10,10,10
+Jeewan,Nanayk
+Math 2,1,2,1,2,25,19,24
+Madus,Jave
+Science 8,25,20,26
+Dias,Frdo
+English 80,88,50
+Nimal,Auil
+Science 50,80,88,44
+Dimaz,Aliz
+Math 40,80,55,22,74,45,90,50
