@@ -36,9 +36,6 @@ public class studentClass {
     public void setSubject(String subject) {
         this.subject = subject;
     }
-    public double getFinalGradeMark() {
-        return 0;
-    }
 }
 
 class englishStudent extends studentClass{
