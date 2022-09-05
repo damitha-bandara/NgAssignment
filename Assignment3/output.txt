@@ -1,8 +1,12 @@
+
 English Students
 
 First Name	Last Name	Final Grade Mark	finalGrade
 -------------------------------------------------------------------
 Damitha		Nuwan		20.80				H
+
+Frdo		Dias		70.40				C
+
 
 Science Students
 
@@ -10,40 +14,19 @@ First Name	Last Name	Final Grade Mark	finalGrade
 -------------------------------------------------------------------
 Amithab		Bandara		20.50				H
 
+Jave		Madus		24.70				H
+
+Auil		Nimal		73.00				C
+
+
 Math Students
 
 First Name	Last Name	Final Grade Mark	finalGrade
 -------------------------------------------------------------------
 Wasala		Saman		25.00				H
 
-Math Students
-
-First Name	Last Name	Final Grade Mark	finalGrade
--------------------------------------------------------------------
 Nanayk		Jeewan		20.90				H
 
-Science Students
-
-First Name	Last Name	Final Grade Mark	finalGrade
--------------------------------------------------------------------
-Jave		Madus		24.70				H
-
-English Students
-
-First Name	Last Name	Final Grade Mark	finalGrade
--------------------------------------------------------------------
-Frdo		Dias		70.40				C
-
-Science Students
-
-First Name	Last Name	Final Grade Mark	finalGrade
--------------------------------------------------------------------
-Auil		Nimal		73.00				C
-
-Math Students
-
-First Name	Last Name	Final Grade Mark	finalGrade
--------------------------------------------------------------------
 Aliz		Dimaz		89.65				B
 
 
