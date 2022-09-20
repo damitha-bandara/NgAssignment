@@ -3,30 +3,57 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileOwnerAttributeView;
-import java.util.HashMap;
+import java.util.Scanner;
 import java.util.Stack;
 
-
 public class mainApp {
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] arg) throws Exception {
         final File folderPath = new File("./newfolder/");
-        File folderList[] = folderPath.listFiles();
         Stack<folder> stack = new Stack<>();
-
-//        tray newTrayObject1 = new tray(folderList.toString());
-//        tray newHashObject1 = new tray
-        //userInputAndSearch(folderPath);
-
+        lifoFolder(folderPath, stack);
+        System.out.println("Your folder Add to LIFO");
+        userInputAndSearch(folderPath);
+    }
+    private static void userInputAndSearch(File folderPath) {
+        Scanner newUserInputObject = new Scanner(System.in);
+        System.out.println("Type 'File' or 'Folder' for Search what you want: ");
+        String userInputFileOrFolder = newUserInputObject.nextLine().toLowerCase();
+        if (userInputFileOrFolder.equals("file")) {
+            System.out.println("Type 'Number' for search by file number or 'Name' for search by file name: ");
+            String userInputFileNumberOrFileName = newUserInputObject.nextLine().toLowerCase();
+            if (userInputFileNumberOrFileName.equals("number")) {
+                System.out.println("Sorry, Search by file number is under constructor");
+                //String fileNumber;
+                //System.out.println("Enter File Number: ");
+                //fileNumber = newUserInputObject.nextLine();
+                //searchByFileNumber();
+                System.out.println("Search By File Number");
+            } else if (userInputFileNumberOrFileName.equals("name")) {
+                String fileName;
+                System.out.println("Enter Folder name: ");
+                fileName = newUserInputObject.nextLine();
+                searchByFileName(folderPath, fileName);
+                System.out.println("Search By File Name");
+            } else {
+                System.out.println("You type wrong content, Please try again!");
+            }
+        } else if (userInputFileOrFolder.equals("folder")) {
+            String folderName;
+            System.out.println("Enter Folder name: ");
+            folderName = newUserInputObject.nextLine();
+            searchByFolderName(folderPath, folderName);
+            System.out.println("Search By Folder Name");
+        } else {
+            System.out.println("You type wrong content, Please try again!");
+        }
+    }
+    private static void lifoFolder(File folderPath, Stack<folder> stack) throws IOException {
+        File[]folderList = folderPath.listFiles();
+        assert folderList != null;
         for (File folder : folderList) {
-
             BasicFileAttributes createdDate = Files.readAttributes(folder.toPath(), BasicFileAttributes.class);
             FileOwnerAttributeView ownerOfTheFolder = Files.getFileAttributeView(folder.toPath(), FileOwnerAttributeView.class);
             String typeOfTheFiles = Files.probeContentType(folder.toPath());
-
-            System.out.println(folder.toPath());
-
-            tray newTrayObject1 = new tray(folder.toPath());
 
             folder newFolderObject1 = new folder(folder.getName(),
                     createdDate.creationTime().toString(),
@@ -36,7 +63,69 @@ public class mainApp {
             stack.push(newFolderObject1);
         }
     }
+    private static void searchByFolderName(File folderPath, String folderName){
+
+        String[] folderList = folderPath.list();  // store all names with same name // with/without extension
+        int folderCount = 0;
+        if (folderList == null) {
+            System.out.println("Empty directory.");
+        }
+        else {
+            // Linear search in the array
+            for (String foldname : folderList) {
+                if (foldname.equalsIgnoreCase(folderName)) {
+                    System.out.println(foldname + " found");
+                    folderCount = 1;
+                }
+            }
+        }
+        if (folderCount == 0) {
+            System.out.println("File Not Found");
+        }
+    }
+    private static void searchByFileName(File folderPath, String fileName){
+        file fileSearch = new file();
+        fileSearch.fileSearchMethod( folderPath, fileName );
+        int count = fileSearch.getResult().size();
+        if(count == 0){
+            System.out.println("\nNo Result found!");
+        }else {
+            System.out.println("\nFound " + count + " result\n");
+            for (String printResults : fileSearch.getResult()) {
+                System.out.println("Found: " + printResults);
+            }
+        }
+    }
 }
+
+
+//        final File folderPath = new File("./newfolder/");
+//        File folderList[] = folderPath.listFiles();
+//        Stack<folder> stack = new Stack<>();
+//
+////        tray newTrayObject1 = new tray(folderList.toString());
+////        tray newHashObject1 = new tray
+//        //userInputAndSearch(folderPath);
+//
+//        for (File folder : folderList) {
+//
+//            BasicFileAttributes createdDate = Files.readAttributes(folder.toPath(), BasicFileAttributes.class);
+//            FileOwnerAttributeView ownerOfTheFolder = Files.getFileAttributeView(folder.toPath(), FileOwnerAttributeView.class);
+//            String typeOfTheFiles = Files.probeContentType(folder.toPath());
+//
+//            System.out.println(folder.toPath());
+//
+//            tray newTrayObject1 = new tray(folder.toPath());
+//
+//            folder newFolderObject1 = new folder(folder.getName(),
+//                    createdDate.creationTime().toString(),
+//                    ownerOfTheFolder.getOwner().toString(),
+//                    typeOfTheFiles);
+//
+//            stack.push(newFolderObject1);
+//        }
+//    }
+//}
             //stack.push(folder.toPath().toString());
 
 //            Stack<folder> stack = new Stack<folder>(folder.getName(),

@@ -1,17 +1,10 @@
-import java.io.File;
-import java.nio.file.attribute.FileTime;
-import java.nio.file.attribute.UserPrincipal;
-
+import java.io.IOException;
 public class folder {
     private String nameOfTheFolder;
     private String createdDate;
     private String ownerOfTheFolder;
-//    map<String, File> files;
     private String typeOfTheFiles;
-
-    private enum typeOfTheFiles{};
-
-    public folder(String nameOfTheFolder, String createdDate, String ownerOfTheFolder, String typeOfTheFiles) {
+    public folder(String nameOfTheFolder, String createdDate, String ownerOfTheFolder, String typeOfTheFiles) throws IOException {
         this.setNameOfTheFolder(nameOfTheFolder);
         this.setCreatedDate(createdDate);
         this.setOwnerOfTheFolder(ownerOfTheFolder);
@@ -22,8 +15,8 @@ public class folder {
         return nameOfTheFolder;
     }
 
-    public void setNameOfTheFolder(String nameOfTheFolder) {
-        this.nameOfTheFolder = nameOfTheFolder;
+    public void setNameOfTheFolder(String nameOfTheFolder) throws IOException {
+       this.nameOfTheFolder = nameOfTheFolder;
     }
 
     public String getCreatedDate() {
@@ -49,5 +42,5 @@ public class folder {
     public void setTypeOfTheFiles(String typeOfTheFiles) {
         this.typeOfTheFiles = typeOfTheFiles;
     }
-
 }
+
